@@ -1,0 +1,2 @@
+8. obsługa formularzy
+1. Wyświetl kontent postów jako tablice

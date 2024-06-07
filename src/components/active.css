@@ -1,0 +1,16 @@
+a{
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    font-size: medium;
+    font-weight: lighter;
+}
+
+a.active{
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    font-size: medium;
+    font-weight: bold;
+    color: red;
+}
