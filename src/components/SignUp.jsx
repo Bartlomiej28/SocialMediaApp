@@ -18,7 +18,7 @@ function SignUp({signUpWindow, setSignUpWindow}) {
 
   return (
     <div className='absolute top-0 left-0 z-10 w-full h-screen bg-transparent flex items-center justify-center'>
-        <div className='relative w-1/2 xsm:w-full sm:w-full  h-4/6 bg-white rounded-xl'>
+        <div className='relative w-1/2 xsm:w-full sm:w-full sm:h-screen xsm:h-screen  h-4/6 bg-white rounded-xl'>
             
             <button onClick={handleCloseWindow} className='absolute top-4 left-4'><AiOutlineCloseCircle fontSize={30}/></button>
             <div className='mt-16 flex flex-col gap-4 items-center'>

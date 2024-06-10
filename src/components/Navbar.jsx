@@ -20,7 +20,8 @@ function Navbar() {
   }
 
   const handleSearch = () =>{
-    navigation(`/search/${searchItem.current.value}`)
+    navigation(`/search/${searchItem.current.value.toLowerCase()}`)
+    window.location.reload();
   }
 
   const handleShowInput = () => {

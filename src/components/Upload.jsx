@@ -13,7 +13,7 @@ function Upload() {
   const {handleFileChange, handlePublish, success, isLoading, isFileExtentionSuccess} = useUploadPost(contentRef, categories);
   
   const handleAddCategory = () => {
-    setCategories([...categories, categoryRef.current.value]);
+    setCategories([...categories, categoryRef.current.value.toLowerCase()]);
     categoryRef.current.value = "";
   };
   

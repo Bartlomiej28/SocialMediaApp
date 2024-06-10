@@ -32,7 +32,7 @@ function Following() {
     <div className='flex flex-col gap-4 p-4 items-center sm:pt-24 h-full overflow-scroll'>
       {following.length > 0 ? 
       <>
-        <div className='w-full h-4/10 '>
+        <div className='w-full h-4/10 mb-14'>
           <p className='text-xl font-medium'>Obserwujesz:</p>
           <Carousel swipeable={false} draggable={false} showDots={true} responsive={responsive} ssr={false} infinite={true} autoPlay={true} 
                     autoPlaySpeed={1000} keyBoardControl={true} customTransition='all .5' transitionDuration={1000} containerClass='carousel-container'

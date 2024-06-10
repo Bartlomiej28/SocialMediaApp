@@ -37,7 +37,7 @@ function Explore() {
 
   return (
     <div className='flex flex-col p-4 items-center gap-4 sm:pt-20 h-full overflow-scroll'>
-      <div className='w-full h-1/3 mb-4'>
+      <div className='w-full h-1/3 mb-14'>
         <p className='text-xl font-medium'>Polecani użytkownicy:</p>
         <Carousel swipeable={false} draggable={false} showDots={true} responsive={responsive} ssr={false} infinite={true} autoPlay={true} 
                   autoPlaySpeed={1000} keyBoardControl={true} customTransition='all .5' transitionDuration={1000} containerClass='carousel-container'

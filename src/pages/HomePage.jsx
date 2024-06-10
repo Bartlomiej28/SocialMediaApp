@@ -36,7 +36,7 @@ function HomePage() {
       </div>
 
       <div className='flex flex-row'>
-        <div className='w-2/12 lg:w-3/12 xsm:hidden sm:hidden h-sidebar-height fixed top-16  left-0'>
+        <div className='w-2/12 lg:w-2/12 xsm:hidden sm:hidden h-sidebar-height fixed top-16  left-0'>
           <Sidebar/>
         </div>
         <div className='w-10/12 lg:w-19/12 xsm:w-full sm:w-full absolute right-0 top-16 sm:top-0 h-sidebar-height sm:h-screen overflow-hidden'>

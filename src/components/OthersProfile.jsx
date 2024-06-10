@@ -15,7 +15,8 @@ function OthersProfile() {
     }
     
   return (
-    <div className='p-4 flex flex-col gap-4 sm:pt-24'>
+    
+    <div className='p-4 flex flex-col gap-4 sm:pt-24 h-full overflow-scroll'>
       <div className='flex flex-row gap-4'>
         <img src={accountData.photoURL} className='rounded-full' width={100}/>
         <div className='flex flex-col gap-4 w-full'>
@@ -28,23 +29,21 @@ function OthersProfile() {
       </div>
       <div className='flex flex-col'>
         <div className='flex flex-row gap-4'>
-
           <label><b>{accountData.following ? accountData.following.length : '0' }</b> Following</label>
           <label><b>{accountData.followers ? accountData.followers.length : '0'}</b> Followers</label>
-
         </div>
         <div className='mb-4'>
           {accountData.diagram}
         </div>
-        <div className='w-full h-auto flex flex-wrap '>
+        <div className='w-full h-auto flex flex-wrap mb-8'>
           {userPosts.map((post) =>(
-            <MiniPost id={post.id} filePath={post.data.filePath} postedBy={post.data.postedBy}/>
+            <MiniPost key={post.id} id={post.id} filePath={post.data.filePath} postedBy={post.data.postedBy}/>
           ))}
         </div>
+        
       </div>
-      {console.log(userPosts)}
     </div>
   )
 }
 
-export default OthersProfile
+export default OthersProfile;

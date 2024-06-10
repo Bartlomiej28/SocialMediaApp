@@ -11,8 +11,9 @@ function Search() {
     
   const {isLoading, tiktoks} = useSearch(searchItem);
   console.log(tiktoks)
+
   return (
-    <div className='flex flex-col gap-4 p-4 items-center'>
+    <div className='flex flex-col gap-4 p-4 items-center sm:pt-24 h-full overflow-scroll'>
       
         {isLoading 
         ? 
