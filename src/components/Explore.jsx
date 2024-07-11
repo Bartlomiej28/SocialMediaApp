@@ -6,6 +6,7 @@ import MiniProfile from './MiniProfile';
 import useGetSuggestedPosts from '../hooks/useGetSuggestedPosts';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
+import SkeletonPost from './SkeletonPost';
 
 function Explore() {
   const { isLoading, suggestedUsers } = useGetSuggestedUsers();
@@ -52,22 +53,22 @@ function Explore() {
       <div className='w-full '>
         <p className='text-xl font-medium'>Polecane posty:</p>
       </div>
-      
-      {suggestedPosts.map((suggestedPost) => (
-        <TikTok
-          key={suggestedPost.id}
-          publishedBy={suggestedPost.data.postedBy}
-          content={suggestedPost.data.content}
-          filePath={suggestedPost.data.filePath}
-          tiktokId={suggestedPost.id}
-          likedBy={suggestedPost.data.likedBy}
-          comments={suggestedPost.data.comments}
-        />
-      ))}
-
-      
         
-      
+        {isLoadingPosts === true ? <SkeletonPost/> : 
+        <>
+          {suggestedPosts.map((suggestedPost) => (
+          <TikTok
+            key={suggestedPost.id}
+            publishedBy={suggestedPost.data.postedBy}
+            content={suggestedPost.data.content}
+            filePath={suggestedPost.data.filePath}
+            tiktokId={suggestedPost.id}
+            likedBy={suggestedPost.data.likedBy}
+            comments={suggestedPost.data.comments}
+          />
+          ))}
+        </>
+        }
     </div>
   );
 }

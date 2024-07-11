@@ -1,35 +1,41 @@
 import { arrayUnion, updateDoc } from 'firebase/firestore';
-import {useState} from 'react'
+import { useState } from 'react';
 import { useSelector } from 'react-redux';
 
 function useSendComment(tiktokRef, newCommentContent) {
-    const [isSendingLoading, setIsSendingLoading] = useState(false)
-    const [success, setSuccess] = useState(false);
-    const currentUser = useSelector((state) => state.userData.id);
+  const [isSendingLoading, setIsSendingLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const currentUser = useSelector((state) => state.userData.id);
 
-    async function addComment (){
-        setIsSendingLoading(true);
-        const newComment = {
-            postedBy: currentUser,
-            commentContent: newCommentContent.current.value
-        }
+  async function addComment() {
+    setIsSendingLoading(true);
+    const newComment = {
+      postedBy: currentUser,
+      commentContent: newCommentContent.current.value,
+    };
 
-        await updateDoc(tiktokRef,{
-            comments: arrayUnion(newComment)
-        })
-        .then(()=>setIsSendingLoading(false))
+    try {
+      await updateDoc(tiktokRef, {
+        comments: arrayUnion(newComment),
+      });
+      setSuccess(true);
+    } catch (error) {
+      console.error('Error adding comment: ', error);
+      setSuccess(false);
+    } finally {
+      setIsSendingLoading(false);
     }
+  }
 
-    const handleSendNewComment = () =>{
-        try{
-            addComment();
-        }
-        catch(err){
-            console.log(err);
-        }
-        
+  const handleSendNewComment = async () => {
+    try {
+      await addComment();
+    } catch (err) {
+      console.error(err);
     }
-    return {isSendingLoading, success, handleSendNewComment}
+  };
+
+  return { isSendingLoading, success, handleSendNewComment };
 }
 
-export default useSendComment
+export default useSendComment;

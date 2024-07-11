@@ -6,7 +6,6 @@ import MiniPost from './MiniPost';
 
 function OthersProfile() {
     const userID = window.location.href.split('/')[4];
-
     const {isFollowing, isUpdating, handleFollow} = useFollow(userID);
     const {isLoading, accountData, userPosts, isLoadingPosts } = useAccountData(userID);
     
@@ -15,10 +14,9 @@ function OthersProfile() {
     }
     
   return (
-    
     <div className='p-4 flex flex-col gap-4 sm:pt-24 h-full overflow-scroll'>
       <div className='flex flex-row gap-4'>
-        <img src={accountData.photoURL} className='rounded-full' width={100}/>
+        <img src={accountData.photoURL} className='rounded-full' width={100} alt='profile'/>
         <div className='flex flex-col gap-4 w-full'>
           <label className='font-bold text-3xl h-auto text-wrap truncate w-full '>{accountData.displayName}</label>
           <button className={`px-16 py-1 flex gap-4 rounded-sm font-bold w-min border border-[#fe2c55] ${isFollowing ? `bg-white text-[#fe2c55]` : `bg-[#fe2c55] text-white`}`} onClick={handleFollow}>
@@ -36,11 +34,12 @@ function OthersProfile() {
           {accountData.diagram}
         </div>
         <div className='w-full h-auto flex flex-wrap mb-8'>
-          {userPosts.map((post) =>(
+          {isLoadingPosts ? <Loader color='#fe2c55' secondaryColor='white' height='h-screen' width='w-full' size='80'/> : <>
+            {userPosts.map((post) =>(
             <MiniPost key={post.id} id={post.id} filePath={post.data.filePath} postedBy={post.data.postedBy}/>
-          ))}
+            ))}
+          </>}  
         </div>
-        
       </div>
     </div>
   )

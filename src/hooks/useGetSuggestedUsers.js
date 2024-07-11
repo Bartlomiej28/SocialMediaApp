@@ -1,6 +1,6 @@
 import {useState, useEffect} from 'react'
 import { database } from '../utils/database';
-import { collection, limit, orderBy, query, where, getDocs } from 'firebase/firestore';
+import { collection, query, where, getDocs } from 'firebase/firestore';
 import { useSelector } from 'react-redux';
 
 function useGetSuggestedUsers() {
@@ -34,7 +34,7 @@ function useGetSuggestedUsers() {
             }
         }
         getSuggestedUsers();
-    },[following])
+    },[following, id])
   return {isLoading, suggestedUsers}
 }
 

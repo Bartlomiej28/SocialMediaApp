@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
-import { getDocs, collection, query, orderBy, where } from 'firebase/firestore';
+import { getDocs, collection, query, where } from 'firebase/firestore';
 import { database } from '../utils/database';
-import { useSelector } from 'react-redux';
+
 
 function useGetFollowingPosts(following) {
   const [isLoading, setIsLoading] = useState(false);
@@ -32,7 +32,7 @@ function useGetFollowingPosts(following) {
         };
     
         fetchFollowingPosts();
-      }, [following]);
+      }, [following, q]);
 
   return { isLoading, followigPosts };
 }

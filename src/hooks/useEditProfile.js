@@ -71,8 +71,6 @@ function useEditProfile(nameRef, diagramRef, currentImage) {
           await handleUpdateData(currentImage);
         }
         
-        
-
       } catch (error) {
         console.error("Błąd podczas aktualizacji dokumentu: ", error);
       } finally {

@@ -3,8 +3,8 @@ import Alert from './alert';
 import useUploadPost from '../hooks/useUploadPost';
 import Loader from './Loader';
 import { useState } from 'react';
-
 import Confetti from 'react-confetti'
+
 
 function Upload() {
   const contentRef = useRef();
@@ -35,7 +35,6 @@ function Upload() {
       <button onClick={handlePublish} className={`border w-min px-4 py-2 flex text-[#fe2c55]   border-[#fe2c55] ${isFileExtentionSuccess !== true ? 'opacity-60 ' : ''}`} disabled={isFileExtentionSuccess !== true ? true: false}>
         Opublikuj {isLoading && <Loader color='white' secondaryColor='#fe2c55' width='w-10' height='h-auto' size='20'/> }
       </button>
-      
       
       {success && <Alert text='Post został pomyślnie dodany'/>}
       

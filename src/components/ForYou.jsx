@@ -1,14 +1,11 @@
-import React, {useEffect, useRef} from 'react';
+import React from 'react';
 import TikTok from './TikTok';
 import useGetPosts from '../hooks/useGetPosts';
 import Loader from './Loader';
 
 function ForYou() {
   const { isLoading, tiktoks } = useGetPosts();
-  const scrollInto = useRef(null)
  
-  
-
   if (isLoading) {
     return <Loader color='#fe2c55' secondaryColor='white' height='h-screen' width='w-full' size='80'/>;
   }

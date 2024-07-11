@@ -1,39 +1,14 @@
-import React, {useEffect, useState} from 'react'
-import { useSelector } from 'react-redux'
+import React from 'react'
 import MiniPost from './MiniPost'
-import { getDoc, doc } from 'firebase/firestore';
-import { database } from '../utils/database';
+import useGetLikedPosts from '../hooks/useGetLikedPosts';
+import Loader from './Loader';
 
 function Liked() {
-  const likedPosts = useSelector((state) => state.userData.likedPosts);
-  const [likedPostsData, setLikedPostsData] = useState([]);
+  const {likedPostsData, isLoading} = useGetLikedPosts();
 
-  useEffect(() => {
-    const fetchLikedPostsData = async () => {
-      const data = [];
-
-      for (const postID of likedPosts) {
-        const postRef = doc(database, 'tiktoks', postID);
-        const postSnap = await getDoc(postRef);
-
-        if (postSnap.exists()) {
-          data.push({
-            id: postID,
-            filePath: postSnap.data().filePath,
-            postedBy: postSnap.data().postedBy
-          });
-        } else {
-          console.log('Brak danych dla postu o ID:', postID);
-        }
-      }
-
-      setLikedPostsData(data);
-    };
-
-    fetchLikedPostsData();
-  }, [likedPosts]);
-
-  console.log(likedPostsData)
+  if(isLoading){
+    return <Loader color='#fe2c55' secondaryColor='white' height='h-screen' width='w-full' size='80'/>;
+  }
 
   return (
     <div>

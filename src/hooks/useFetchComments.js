@@ -7,44 +7,24 @@ function useFetchComments(tiktokId) {
     const [comments, setComments] = useState([]);
     
     useEffect(() => {
-        
         const fetchComments = async() =>{
             setIsLoading(true);
-            const snap = await getDoc(doc(database, 'tiktoks', tiktokId))
-            const allCommenst = snap.data().comments
             try{
+                const snap = await getDoc(doc(database, 'tiktoks', tiktokId))
+                const allCommenst = snap.data().comments
                 setComments(allCommenst);
             }
             catch(err){
                 console.log(err);
             } 
-            setIsLoading(false);
+            finally{
+                setIsLoading(false);
+            }
         }
         fetchComments();
-     }, []);
+     }, [tiktokId]);
 
     return{isLoading, comments}
 }
 
 export default useFetchComments
-
-
-
-
-
-
-/*
-    useEffect(() => {
-        const fetchComments = async() =>{
-            const snap = await getDoc(doc(database, 'tiktoks', tiktokId))
-            const allCommenst = snap.data().comments
-            try{
-                setComments(allCommenst);
-            }
-            catch(err){
-                console.log(err);
-            } 
-        }
-        fetchComments();
-     }, []);
-     */

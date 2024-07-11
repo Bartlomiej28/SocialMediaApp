@@ -10,7 +10,7 @@ import SkeletonPost from './SkeletonPost';
 function Following() {
   const following = useSelector((state) => state.userData.following)
   const {isLoading, followigPosts} = useGetFollowingPosts(following);
-  console.log(isLoading)
+
   const responsive = {
     desktop: {
       breakpoint: { max: 3000, min: 1024 },

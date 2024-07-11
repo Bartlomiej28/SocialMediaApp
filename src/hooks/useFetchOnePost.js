@@ -1,44 +1,30 @@
-import {useState, useEffect} from 'react'
-import {database} from '../utils/database';
-import {getDoc, doc} from 'firebase/firestore';
-
+import { useState, useEffect } from 'react';
+import { database } from '../utils/database';
+import { getDoc, doc } from 'firebase/firestore';
 
 function useFetchOnePost(id) {
   const [isLoading, setIsLoading] = useState(true);
-  const [tiktok, setTikTok] = useState(null)
+  const [tiktok, setTikTok] = useState(null);
 
-  useEffect(()=>{
-    const fetchTiktokData = async() =>{
-      
-      setIsLoading(true)
-      const snap = await getDoc(doc(database, 'tiktoks', id));
-      if(snap.exists()){
-        setTikTok(snap.data());
+  useEffect(() => {
+    const fetchTiktokData = async () => {
+      setIsLoading(true);
+      try {
+        const snap = await getDoc(doc(database, 'tiktoks', id));
+        if (snap.exists()) {
+          setTikTok(snap.data());
+        }
+      } catch (error) {
+        console.error('Error fetching TikTok data:', error);
+      } finally {
         setIsLoading(false);
       }
-
-    }
+    };
+    
     fetchTiktokData();
-  },[])
+  }, [id]);
 
-
-  return {isLoading, tiktok}
+  return { isLoading, tiktok };
 }
 
-export default useFetchOnePost
-
-
-/*
-
-useEffect(()=>{
-
-    const fetchTiktokData = async() =>{
-      const snap = await getDoc(doc(database, 'tiktoks', id));
-      if(snap.exists()){
-        setData(snap.data());
-      }
-
-    }
-    fetchTiktokData();
-  },[])
-*/
+export default useFetchOnePost;

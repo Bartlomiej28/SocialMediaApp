@@ -11,10 +11,7 @@ import {AiOutlinePlus} from 'react-icons/ai';
 function SmallSidebar({setShowSmallSidebar}) {
     const userName = useSelector(state => state.userData.displayName);
     const photoURL = useSelector((state) => state.userData.photoURL);
-
-
-
-
+    
     const handleHideSidebar = () =>{
         setShowSmallSidebar(false);
     }

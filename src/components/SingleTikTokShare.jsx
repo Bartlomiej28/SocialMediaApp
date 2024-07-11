@@ -1,5 +1,4 @@
 import React from 'react';
-import { useState } from 'react';
 import Tiktok from '../components/TikTok'
 import useFetchOnePost from '../hooks/useFetchOnePost';
 

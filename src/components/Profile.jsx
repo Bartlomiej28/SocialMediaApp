@@ -8,13 +8,11 @@ import UserPosts from './UserPosts';
 function Profile() {
   const [showEditWindow, setShowEditWindow] = useState(false);
   const {photoURL, displayName, following, followers, diagram} = useSelector((state)=> state.userData);
+  const navigation = useNavigate();
   
-
   const handleEditProfile = () =>{
     setShowEditWindow(!showEditWindow);
   }
-
-  const navigation = useNavigate();
   
   const handleLogOut = () =>{
     localStorage.removeItem('user');
@@ -25,7 +23,7 @@ function Profile() {
     <>
     <div className='p-4 flex flex-col gap-4 sm:pt-24 h-full overflow-scroll'>
       <div className='flex gap-4 items-center w-full'>
-        <img src={photoURL} className='rounded-full' width={100}/>
+        <img src={photoURL} className='rounded-full' width={100} alt='profile'/>
         
           <label className='font-bold text-3xl truncate h-auto text-wrap w-auto'>{displayName}</label>
         

@@ -1,11 +1,10 @@
 import React, {useEffect, useRef, useState} from 'react';
 import {FaTiktok} from 'react-icons/fa';
 import {AiOutlinePlus, AiOutlineLogout, AiOutlineSearch} from 'react-icons/ai';
-import {Link} from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
-import '../index.css';
+import {Link, useNavigate} from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import {RiLiveLine} from 'react-icons/ri';
+import '../index.css';
 
 function Navbar() {
   const [showInput, setShowInput] = useState(false);
@@ -31,7 +30,7 @@ function Navbar() {
   useEffect(()=>{
     const currentPlace = window.location.href.split('/')[3];
     setPlace(currentPlace)
-  })
+  },[])
   
 
   return (
@@ -58,7 +57,7 @@ function Navbar() {
         <Link to='/upload' className='flex flex-row gap-2 px-4 py-1 items-center w-auto border font-medium xsm:hidden sm:hidden hover:scale-110 duration-200 ease-in-out'><AiOutlinePlus/><p>Prześlij</p></Link>
         
         <button className='items-center border font-medium rounded-full sm:hidden hover:scale-110 duration-200 ease-in-out' onClick={() =>{navigation('/profile')}}>
-          <img src={photoURL} className='rounded-full w-10'/>
+          <img src={photoURL} className='rounded-full w-10' alt='profile'/>
         </button>
 
         <AiOutlineLogout fontSize={25} onClick={handleLogOut} className='cursor-pointer xsm:hidden sm:hidden hover:scale-110 duration-200 ease-in-out'/>

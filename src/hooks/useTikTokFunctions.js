@@ -26,7 +26,9 @@ function useTikTokFunctions(publishedBy, tiktokId) {
             }catch(error){
                 console.log(error.message);
             }
-            setIsLoading(false)
+            finally{
+                setIsLoading(false)
+            }
         }
         fetchAuthorData();
 
@@ -82,17 +84,3 @@ function useTikTokFunctions(publishedBy, tiktokId) {
 
 export default useTikTokFunctions
 
-
-/*
-useEffect(()=>{
-        const fetchAuthorData = async() =>{
-            setLoading(true);
-            const snap = await getDoc(doc(database, 'users-extra-info', publishedBy));
-            if(snap.exists()){
-                setAuthorData(snap.data());
-            }
-            setLoading(false);
-        }
-        fetchAuthorData();
-    },[])
-*/
