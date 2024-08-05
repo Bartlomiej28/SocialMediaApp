@@ -28,7 +28,7 @@ function EditProfile({ showEditWindow, setShowEditWindow }) {
         <button onClick={handleCloseWindow} className='absolute top-4 left-4'><AiOutlineCloseCircle fontSize={30} /></button>
         <div className='mt-16 flex flex-col gap-4 items-center'>
           <p className='font-bold text-xl'>Edit Your Profile</p>
-          <img src={currentImage} className='w-20 h-20 rounded-full'/>
+          <img src={currentImage} alt='newImage' className='w-20 h-20 rounded-full'/>
   
           <button className=''>Select new photo</button>
           <input type='file' onChange={handleFileChange} className='w-auto h-auto px-4 py-2 border'/>

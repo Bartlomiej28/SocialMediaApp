@@ -30,6 +30,7 @@ function useSendComment(tiktokRef, newCommentContent) {
   const handleSendNewComment = async () => {
     try {
       await addComment();
+      window.location.reload();
     } catch (err) {
       console.error(err);
     }
