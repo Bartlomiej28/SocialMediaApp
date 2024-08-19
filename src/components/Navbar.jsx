@@ -34,12 +34,12 @@ function Navbar() {
   
 
   return (
-    <div className={`flex flex-row justify-between text-black border items-center px-4 h-full sm:border-none bg-white ${place === 'home' ? 'sm:bg-transparent sm:text-white' : ' sm:text-black sm:shadow-md '}`}>
+    <div className={`flex flex-row justify-between text-black border items-center px-4 h-full sm:border-none bg-white ${place === 'home' ? 'sm:bg-transparent sm:text-white' : ' sm:text-black sm:shadow-md '}`} data-test="navbar">
 
       <div className='w-3/12 sm:w-1/12 '>
 
         <Link to='/home' className='sm:hidden'>
-          <FaTiktok className='text-3xl'/>
+          <FaTiktok data-test="TikTok-icon" className='text-3xl'/>
           <p className='text-3xl font-bold'>TikTok</p>
         </Link>
 
@@ -49,18 +49,18 @@ function Navbar() {
       </div>
 
       <div className={`relative w-4/12 md:w-8/12 sm:w-8/12 mx-4 h-max ${showInput === true ? 'sm:block' : 'sm:hidden'}`}>
-        <input type='text' placeholder='Szukaj' className={`py-2 px-4 w-full bg-[#f1f1f2] sm:bg-transparent sm:border rounded-full outline-none ${place === 'home'? 'sm:border-white' : 'sm:border sm:border-black'}`} ref={searchItem}/>
-        <button className='absolute right-0 top-0 w-16 h-full  flex justify-center items-center rounded-full hover:bg-[#e4e4e6] duration-200 ease-in-out ' onClick={handleSearch}><AiOutlineSearch fontSize={20}/></button>
+        <input data-test="search-input" type='text' placeholder='Szukaj' className={`py-2 px-4 w-full bg-[#f1f1f2] sm:bg-transparent sm:border rounded-full outline-none ${place === 'home'? 'sm:border-white' : 'sm:border sm:border-black'}`} ref={searchItem}/>
+        <button data-test="search-button" className='absolute right-0 top-0 w-16 h-full  flex justify-center items-center rounded-full hover:bg-[#e4e4e6] duration-200 ease-in-out ' onClick={handleSearch}><AiOutlineSearch fontSize={20}/></button>
       </div>
 
       <div className='flex flex-row gap-4 items-center w-3/12 sm:w-2/12  justify-end '>
-        <Link to='/upload' className='flex flex-row gap-2 px-4 py-1 items-center w-auto border font-medium xsm:hidden sm:hidden hover:scale-110 duration-200 ease-in-out'><AiOutlinePlus/><p>Prześlij</p></Link>
+        <Link data-test="upload-link" to='/upload' className='flex flex-row gap-2 px-4 py-1 items-center w-auto border font-medium xsm:hidden sm:hidden hover:scale-110 duration-200 ease-in-out'><AiOutlinePlus/><p>Prześlij</p></Link>
         
-        <button className='items-center border font-medium rounded-full sm:hidden hover:scale-110 duration-200 ease-in-out' onClick={() =>{navigation('/profile')}}>
-          <img src={photoURL} className='rounded-full w-10' alt='profile'/>
+        <button data-test="go-to-profile-button" className='items-center border font-medium rounded-full sm:hidden hover:scale-110 duration-200 ease-in-out' onClick={() =>{navigation('/profile')}}>
+          <img data-test="profile-thumbnail" src={photoURL} className='rounded-full w-10' alt='profile'/>
         </button>
 
-        <AiOutlineLogout fontSize={25} onClick={handleLogOut} className='cursor-pointer xsm:hidden sm:hidden hover:scale-110 duration-200 ease-in-out'/>
+        <AiOutlineLogout data-test="log-out-button" fontSize={25} onClick={handleLogOut} className='cursor-pointer xsm:hidden sm:hidden hover:scale-110 duration-200 ease-in-out'/>
 
         <button className='items-center font-bold rounded-full hidden sm:block w-10 h-10 hover:scale-110 duration-200 ease-in-out ' onClick={handleShowInput}>
           <AiOutlineSearch fontSize={25}/>

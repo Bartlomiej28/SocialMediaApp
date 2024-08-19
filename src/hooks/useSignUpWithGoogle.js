@@ -6,12 +6,13 @@ import { database } from '../utils/database';
 
 function useSignUpWithGoogle() {
     const googleProvider = new GoogleAuthProvider();
-    const [isLoadingG, setIsLoadingG] = useState(false);
+    const [isLoadingGoogle, setIsLoadingGoogle] = useState(false);
+    const [isRegisteredWithGoogle, setIsRegisteredWithGoogle] = useState(false)
     let auth = getAuth();
     const navigation = useNavigate();
 
     const handleSignUpWithGoogle = async() =>{
-        setIsLoadingG(true)
+        setIsLoadingGoogle(true)
         await signInWithPopup(auth,googleProvider)
             .then((response) =>{
                 console.log(response.user);
@@ -28,12 +29,13 @@ function useSignUpWithGoogle() {
                     diagram: ''
                 }
                 setDoc(doc(database, 'users-extra-info', uid), userData)
-                setIsLoadingG(false)
+                setIsLoadingGoogle(false)
+                setIsRegisteredWithGoogle(true)
                 navigation('/');
             })
             .catch((err) => alert(err.message));
     }
-    return {isLoadingG, handleSignUpWithGoogle}
+    return {isLoadingGoogle, isRegisteredWithGoogle, handleSignUpWithGoogle}
 }
 
 export default useSignUpWithGoogle

@@ -23,7 +23,7 @@ function Upload() {
       <p className='text-xl font-bold'>Utwórz swój nowy post</p>
       <input type='text' placeholder='Wpisz tekst...' className='border w-1/2 xsm:w-full sm:w-full md:w-full lg:w-full h-10 px-4 py-2' ref={contentRef}/>
       <input type='text' placeholder='Wpisz kategorię...' ref={categoryRef} className='border w-1/2 xsm:w-full sm:w-full md:w-full lg:w-full h-10 px-4 py-2'/>
-      <button onClick={handleAddCategory} className='border border-[#fe2c55] px-4 py-2 w-1/2 sm:w-full'>Dodaj kategorię</button>
+      <button onClick={handleAddCategory} className='border border-[#fe2c55] text-[#fe2c55] px-4 py-2 w-1/2 sm:w-full'>Dodaj kategorię</button>
         <div className='w-full flex flex-wrap gap-2'>
         {categories.map((category, index) => (
           <p key={index} className='border rounded-full px-4 py-2'>{category}</p>

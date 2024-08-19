@@ -11,6 +11,7 @@
     "@vercel/speed-insights": "^1.0.11",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
+    "cypress": "^13.13.3",
     "firebase": "^10.1.0",
     "lucide-react": "^0.362.0",
     "react": "^18.2.0",

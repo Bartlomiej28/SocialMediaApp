@@ -13,10 +13,10 @@ function Sidebar() {
   return (
     <div className='flex flex-col h-full justify-between '>
       <div className='flex flex-col gap-4 pt-8 pb-4 px-4  border-0 border-b'>
-        <NavLink to='/home' className='flex gap-2 items-center font-medium'><AiOutlineHome fontSize={25}/>Dla Ciebie</NavLink>
-        <NavLink to='/following' className='flex gap-2 items-center font-medium'><IoPeopleOutline fontSize={25}/>Obserwuje</NavLink>
-        <NavLink to='/explore' className='flex gap-2 items-center font-medium'><RiCompass3Line fontSize={25}/>Odkryj</NavLink>
-        <NavLink to='/live' className='flex gap-2 items-center font-medium'><RiLiveLine fontSize={25}/>Live</NavLink>
+        <NavLink data-test='go-to-home-link' to='/home' className='flex gap-2 items-center font-medium'><AiOutlineHome fontSize={25}/>Dla Ciebie</NavLink>
+        <NavLink data-test='go-to-following-link' to='/following' className='flex gap-2 items-center font-medium'><IoPeopleOutline fontSize={25}/>Obserwuje</NavLink>
+        <NavLink data-test='go-to-explore-link' to='/explore' className='flex gap-2 items-center font-medium'><RiCompass3Line fontSize={25}/>Odkryj</NavLink>
+        <NavLink data-test='go-to-home-link' to='/live' className='flex gap-2 items-center font-medium'><RiLiveLine fontSize={25}/>Live</NavLink>
       </div>
       <div className='flex flex-wrap gap-2 px-4 pb-8 pt-4 border-0 border-t'>
         {options.map(option =>(

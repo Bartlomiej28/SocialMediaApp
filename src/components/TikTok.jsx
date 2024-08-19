@@ -14,7 +14,7 @@ function TikTok({ publishedBy, content, filePath, tiktokId, likedBy, comments })
     const [showWholeText, setShowWholeText] = useState(false);
     const [likes, setLikes] = useState(likedBy.length);
 
-    
+
 
     const handleCommentsSection = () => {
         navigate(`/${tiktokId}/comments`);

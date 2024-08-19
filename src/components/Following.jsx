@@ -5,11 +5,10 @@ import useGetFollowingPosts from '../hooks/useGetFollowingPosts';
 import TikTok from './TikTok';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
-import SkeletonPost from './SkeletonPost';
 
 function Following() {
   const following = useSelector((state) => state.userData.following)
-  const {isLoading, followigPosts} = useGetFollowingPosts(following);
+  const {followigPosts} = useGetFollowingPosts(following);
 
   const responsive = {
     desktop: {
@@ -47,19 +46,19 @@ function Following() {
         <div className='w-full'>
           <p className='text-xl font-medium'>Posty obserwowanych:</p>
         </div>
-          {isLoading ? <SkeletonPost/> : <>
-            {followigPosts.map((followingPost)=>(
+            {followigPosts.map((followingPost, index)=>(
               <TikTok
-              key={followingPost.id}
-              publishedBy={followingPost.data.postedBy}
-              content={followingPost.data.content}
-              filePath={followingPost.data.filePath}
-              tiktokId={followingPost.id}
-              likedBy={followingPost.data.likedBy}
-              comments={followingPost.data.comments}
+                index={index}
+                key={followingPost.id}
+                publishedBy={followingPost.data.postedBy}
+                content={followingPost.data.content}
+                filePath={followingPost.data.filePath}
+                tiktokId={followingPost.id}
+                likedBy={followingPost.data.likedBy}
+                comments={followingPost.data.comments}
             />
             ))}
-          </>}
+          
       </> : 'Nikogo nie obserwujesz' }
 
     </div>

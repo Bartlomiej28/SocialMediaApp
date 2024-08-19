@@ -5,13 +5,14 @@ import {database} from '../utils/database';
 import { useState } from 'react';
 
 function useSignUpWithEmailAndPassword(email, password) {
-    const [isLoadingEP, setIsLoadingEP] = useState(false)
+    const [isLoadingEmailPassword, setIsLoadingEmailPassword] = useState(false)
+    const [isRegistered, setIsRegistered] = useState(false);
 
     let auth = getAuth();
     const navigation = useNavigate();
 
     const handleSignUp = async () =>{
-        setIsLoadingEP(true)
+        setIsLoadingEmailPassword(true)
         await createUserWithEmailAndPassword(auth, email.current.value, password.current.value)
             .then((response) =>{
                 console.log(response.user);
@@ -29,12 +30,13 @@ function useSignUpWithEmailAndPassword(email, password) {
                 }
 
                 setDoc(doc(database, 'users-extra-info',uid),userData)
-                setIsLoadingEP(false)
+                setIsLoadingEmailPassword(false)
+                setIsRegistered(true)
                 navigation('/');
             })
             .catch((err) => console.log(err.message));
     }
-    return {isLoadingEP, handleSignUp}
+    return {isLoadingEmailPassword, isRegistered, handleSignUp}
 }
 
 export default useSignUpWithEmailAndPassword
