@@ -8,7 +8,7 @@ import './active.css'
 function Sidebar() {
   
   const options = ['Informations', 'News', 'Contacts', 'Career', 'TikTok for Good', 'Advertisement', 'Developers', 'Openness', 'TikTok Rewards',
-                   'TikTok Embeds', 'Help', 'Security', 'Terms', 'Privacy', 'Creator Portal', 'Community Rules', 'Copyright', 'More']
+                   'TikTok Embeds', 'Help', 'Security', 'Terms', 'Privacy', 'Creator Portal', 'All rights', 'reserved by', 'Bartłomiej Boczyło']
 
   return (
     <div className='flex flex-col h-full justify-between '>
