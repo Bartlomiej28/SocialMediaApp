@@ -29,7 +29,7 @@ function TikTok({ publishedBy, content, filePath, tiktokId, likedBy, comments })
     };
 
     const handleShare = () => {
-        navigator.clipboard.writeText(`http://localhost:3000/tiktok/${tiktokId}`);
+        navigator.clipboard.writeText(`https://socialmediaapp-ruby.vercel.app/tiktok/${tiktokId}`);
     };
 
     const handleGoToProfile = () => {
